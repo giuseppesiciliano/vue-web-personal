@@ -2,7 +2,28 @@
     <div class="buttons-display">
 
         <!-- menu di navigazione -->
-        <nav></nav>
+        <nav>
+          <ul>
+            <li>
+                <a href=""><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa-solid fa-user"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa-solid fa-graduation-cap"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa-solid fa-briefcase"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa-solid fa-book"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa-solid fa-address-card"></i></a>
+            </li>
+          </ul>
+        </nav>
 
         <!-- avanti / indietro -->
         <div class="next-prev"></div>
@@ -31,6 +52,21 @@ export default {
 
 nav {
   height: 300px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      margin-top: 13px;
+
+      a {
+        font-size: 25px;
+        color: gray;
+      }
+    }
+  }
 }
 
 .next-prev {

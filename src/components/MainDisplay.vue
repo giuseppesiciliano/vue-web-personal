@@ -1,6 +1,7 @@
 <template>
     <div class="main-display">
 
+      <!-- profilo -->
       <div class="profilo">
         <img src="../assets/img-profilo.jpeg" alt="">
 
@@ -18,14 +19,25 @@
 
       </div>
 
-      <div class="slides">slides</div>
+      <!-- screens -->
+      <Home />
+      <AboutMe style="display: none;"/>
+
     </div>
 </template>
 
 
 <script>
+import Home from './Home.vue';
+import AboutMe from './AboutMe.vue';
+
+
 export default {
   name: 'MainDisplay',
+  components: {
+    Home,
+    AboutMe,
+  }
 }
 </script>
 
@@ -41,7 +53,6 @@ export default {
   width: calc(100% - 100px);
   overflow: hidden;
   display: flex;
-  color: white;
 }
 
 .profilo {
@@ -51,6 +62,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 
   img {
     max-width: 100%;
@@ -88,9 +100,13 @@ export default {
   }
 }
 
-.slides {
-  background-color: $second-color;
-  width: calc(100% - 350px);
-  border-radius: 35px;
+.screens {
+  // background-color: $second-color;
+  // width: calc(100% - 350px);
+  // border-radius: 35px;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 }
 </style>
