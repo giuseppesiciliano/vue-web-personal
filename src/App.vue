@@ -10,7 +10,6 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import Container from './components/Container.vue'
 
-
 export default {
   name: 'App',
   components: {
@@ -21,11 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import './style/variables';
+@import './style/generals';
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
