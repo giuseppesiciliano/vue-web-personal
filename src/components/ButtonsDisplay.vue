@@ -6,11 +6,11 @@
           <ul>
             <li>
                 <span class="text" style="margin-right: -2px;">Home</span>
-                <a><i class="fa-solid fa-house" @click="handleClick"></i></a>
+                <a><i id="home" class="fa-solid fa-house" @click="handleClick('home')"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -4px;">Su di me</span>
-                <a><i class="fa-solid fa-user" @click="handleClick"></i></a>
+                <a><i class="fa-solid fa-user" @click="handleClick('about-me')"></i></a>
             </li>
             <li>
                 <span class="text">CV</span>
@@ -53,8 +53,8 @@
 export default {
   name: 'ButtonsDisplay',
   methods: {
-    handleClick() {
-      this.$emit('button-click')
+    handleClick(screen) {      
+      this.$emit('button-click', screen);
     }
   }
 }
@@ -85,6 +85,7 @@ nav ul,
       font-size: 25px;
       color: $second-color;
       transition: 0.2s ease-out;
+          cursor: pointer;
 
       i {
         transition: 0.2s ease-out;
@@ -116,10 +117,6 @@ nav {
   height: 105px;
 }
 
-
-
-
-// TEST
 .text {
   visibility: hidden;
   opacity: 0;

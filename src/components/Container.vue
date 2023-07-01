@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-      <MainDisplay />
-      <ButtonsDisplay />
+      <MainDisplay ref="MainDisplay" />
+      <ButtonsDisplay @button-click="ciao" />
     </div>
 </template>
 
@@ -17,7 +17,9 @@ export default {
     ButtonsDisplay,
   },
   methods: {
-
+    ciao(screen) {
+      this.$refs.MainDisplay.showScreen(screen)
+    },
   }
 }
 </script>

@@ -15,13 +15,13 @@
             <a href=""><i class="fa-brands fa-linkedin"></i></a>
         </div>
 
-        <div class="cv" @click="switchScreen">Download CV</div>
+        <div class="cv">Download CV</div>
 
       </div>
 
       <!-- screens -->
-      <Home v-if="showHome"/>
-      <AboutMe style="display: none;" />
+      <Home v-if="showHome" />
+      <AboutMe v-if="showAboutMe" />
 
     </div>
 </template>
@@ -41,16 +41,35 @@ export default {
   data() {
     return {
       showHome: true,
+      showAboutMe: false,
     }
   },
   methods: {
-    switchScreen() {
-      if (this.showHome) {
-        this.showHome = false;
-      }else {
+    showScreen(screen) {
+      if (screen == 'home' && this.showHome) {
+        // this.showHome = false;
+      } else if(screen == 'home' && !this.showHome) {
         this.showHome = true;
+        this.showAboutMe = false;
       }
-    }
+
+      if (screen == 'about-me' && this.showAboutMe) {
+        // this.showAboutMe = false;
+        // this.showHome = false;
+      } else if(screen == 'about-me' && !this.showAboutMe) {
+        this.showAboutMe = true;
+        this.showHome = false
+      }
+
+      // if (this.showHome) {
+      //   this.showHome = false;
+      //   // this.showAboutMe = true;
+      // }else {
+      //   this.showHome = true;
+        // this.showAboutMe = false;
+      
+      // alert('ciao');
+    },
   }
 }
 </script>
