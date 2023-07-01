@@ -6,27 +6,27 @@
           <ul>
             <li>
                 <span class="text" style="margin-right: -2px;">Home</span>
-                <a href=""><i class="fa-solid fa-house"></i></a>
+                <a><i class="fa-solid fa-house" @click="handleClick"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -4px;">Su di me</span>
-                <a href=""><i class="fa-solid fa-user"></i></a>
+                <a><i class="fa-solid fa-user" @click="handleClick"></i></a>
             </li>
             <li>
                 <span class="text">CV</span>
-                <a href=""><i class="fa-solid fa-graduation-cap"></i></a>
+                <a><i class="fa-solid fa-graduation-cap"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -3px;">Portfolio</span>
-                <a href=""><i class="fa-solid fa-briefcase"></i></a>
+                <a><i class="fa-solid fa-briefcase"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -4px;">Blog</span>
-                <a href=""><i class="fa-solid fa-book"></i></a>
+                <a><i class="fa-solid fa-book"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -2px;">Contatti</span>
-                <a href=""><i class="fa-solid fa-address-card"></i></a>
+                <a><i class="fa-solid fa-address-card"></i></a>
             </li>
           </ul>
         </nav>
@@ -36,12 +36,12 @@
           <ul>
             <li>
               <span class="text" style="margin-right: -7px;">Avanti</span>
-              <a href=""><i class="fa-solid fa-chevron-right"></i></a>
+              <a><i class="fa-solid fa-chevron-right"></i></a>
             </li>
 
             <li>
               <span class="text" style="margin-right: -7px;">Indietro</span>
-              <a href=""><i class="fa-solid fa-chevron-left"></i></a>
+              <a><i class="fa-solid fa-chevron-left"></i></a>
             </li>
           </ul>
         </div>
@@ -53,6 +53,9 @@
 export default {
   name: 'ButtonsDisplay',
   methods: {
+    handleClick() {
+      this.$emit('button-click')
+    }
   }
 }
 </script>
