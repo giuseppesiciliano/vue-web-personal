@@ -5,28 +5,46 @@
         <nav>
           <ul>
             <li>
+                <span class="text" style="margin-right: -2px;">Home</span>
                 <a href=""><i class="fa-solid fa-house"></i></a>
             </li>
             <li>
+                <span class="text" style="margin-right: -4px;">Su di me</span>
                 <a href=""><i class="fa-solid fa-user"></i></a>
             </li>
             <li>
+                <span class="text">CV</span>
                 <a href=""><i class="fa-solid fa-graduation-cap"></i></a>
             </li>
             <li>
+                <span class="text" style="margin-right: -3px;">Portfolio</span>
                 <a href=""><i class="fa-solid fa-briefcase"></i></a>
             </li>
             <li>
+                <span class="text" style="margin-right: -4px;">Blog</span>
                 <a href=""><i class="fa-solid fa-book"></i></a>
             </li>
             <li>
+                <span class="text" style="margin-right: -2px;">Contatti</span>
                 <a href=""><i class="fa-solid fa-address-card"></i></a>
             </li>
           </ul>
         </nav>
 
         <!-- avanti / indietro -->
-        <div class="next-prev"></div>
+        <div class="next-prev">
+          <ul>
+            <li>
+              <span class="text" style="margin-right: -7px;">Avanti</span>
+              <a href=""><i class="fa-solid fa-chevron-right"></i></a>
+            </li>
+
+            <li>
+              <span class="text" style="margin-right: -7px;">Indietro</span>
+              <a href=""><i class="fa-solid fa-chevron-left"></i></a>
+            </li>
+          </ul>
+        </div>
     </div>
 </template>
 
@@ -34,12 +52,49 @@
 <script>
 export default {
   name: 'ButtonsDisplay',
+  methods: {
+  }
 }
 </script>
 
 
 <style scoped lang="scss">
 @import '../style/variables';
+
+nav, 
+.next-prev {
+  width: 70px;
+  background-color: #6e0253;
+  border-radius: 40px;
+  box-shadow: 0px 0px 500px 0px rgba(0, 0, 0, 0.1);
+}
+nav ul,
+.next-prev ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  li {
+    margin-top: 13px;
+    position: relative;
+
+    a {
+      font-size: 25px;
+      color: $second-color;
+      transition: 0.2s ease-out;
+
+      i {
+        transition: 0.2s ease-out;
+      }
+    }
+    a:hover {
+
+      i {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
 
 .buttons-display {
   width: 100px;
@@ -52,32 +107,37 @@ export default {
 
 nav {
   height: 300px;
+}
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.next-prev {
+  height: 105px;
+}
 
-    li {
-      margin-top: 13px;
 
-      a {
-        font-size: 25px;
-        color: gray;
-      }
-    }
+
+
+// TEST
+.text {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s ease;
+  position: absolute;
+  right: 40px;
+  cursor: pointer;
+  color: $second-color;
+  background-color: #01056b;
+  white-space: nowrap;
+  padding: 4px 8px;
+}
+.text:hover {
+  display: none;
+}
+
+li:hover {
+  .text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-10px);
   }
-}
-
-.next-prev {
-  height: 130px;
-}
-
-nav, 
-.next-prev {
-  width: 70px;
-  background-color: $second-color;
-  border-radius: 40px;
-  box-shadow: 0px 0px 500px 0px rgba(0, 0, 0, 0.1);
 }
 </style>

@@ -16,7 +16,8 @@ export default {
 
 .home {
   background-color: $second-color;
-  width: calc(100% - 350px);
+  min-width: calc(100% - 350px);
+  // width: 1150px;
   border-radius: 35px;
 
   display: flex;

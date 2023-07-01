@@ -15,13 +15,13 @@
             <a href=""><i class="fa-brands fa-linkedin"></i></a>
         </div>
 
-        <div class="cv">Download CV</div>
+        <div class="cv" @click="switchScreen">Download CV</div>
 
       </div>
 
       <!-- screens -->
-      <Home />
-      <AboutMe style="display: none;"/>
+      <Home v-if="showHome"/>
+      <AboutMe style="display: none;" />
 
     </div>
 </template>
@@ -37,6 +37,20 @@ export default {
   components: {
     Home,
     AboutMe,
+  },
+  data() {
+    return {
+      showHome: true,
+    }
+  },
+  methods: {
+    switchScreen() {
+      if (this.showHome) {
+        this.showHome = false;
+      }else {
+        this.showHome = true;
+      }
+    }
   }
 }
 </script>
@@ -47,7 +61,7 @@ export default {
 @import '../style/generals';
 
 .main-display {
-  background-color: $primary-color;
+  background-color: #6e0253;
   border-radius: 35px;
   box-shadow: 0px 20px 500px 10px rgba(0, 0, 0, 0.3);
   width: calc(100% - 100px);
@@ -56,8 +70,8 @@ export default {
 }
 
 .profilo {
-  background-color: $primary-color;
-  width: 350px;
+  background: linear-gradient(90deg, rgba(1,5,107,1) 0%, rgba(110,2,83,1) 76%);
+  min-width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
