@@ -1,5 +1,7 @@
 <template>
-    <div class="about-me">About Me</div>
+    <div class="about-me">
+      <div class="text">About Me</div>
+    </div>
 </template>
 
 
@@ -22,5 +24,17 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
+}
+
+.text {
+  opacity: 0;
+  animation: appear 0.5s linear 0.5s forwards;
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
 }
 </style>

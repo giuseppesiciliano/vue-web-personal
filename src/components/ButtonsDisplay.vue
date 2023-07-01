@@ -14,7 +14,7 @@
             </li>
             <li>
                 <span class="text">CV</span>
-                <a><i class="fa-solid fa-graduation-cap"></i></a>
+                <a><i class="fa-solid fa-graduation-cap" @click="handleClick('cv')"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -3px;">Portfolio</span>

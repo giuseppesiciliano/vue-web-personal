@@ -21,7 +21,8 @@
 
       <!-- screens -->
       <Home v-if="showHome" />
-      <AboutMe v-if="showAboutMe" />
+      <AboutMe v-if="showAboutMe" :class="{ clicked: clicked }" />
+      <CV v-if="showCV" />
 
     </div>
 </template>
@@ -30,6 +31,7 @@
 <script>
 import Home from './Home.vue';
 import AboutMe from './AboutMe.vue';
+import CV from './CV.vue';
 
 
 export default {
@@ -37,11 +39,14 @@ export default {
   components: {
     Home,
     AboutMe,
+    CV,
   },
   data() {
     return {
       showHome: true,
       showAboutMe: false,
+      showCV: false,
+      clicked: false,
     }
   },
   methods: {
@@ -51,6 +56,7 @@ export default {
       } else if(screen == 'home' && !this.showHome) {
         this.showHome = true;
         this.showAboutMe = false;
+        this.showCV = false;
       }
 
       if (screen == 'about-me' && this.showAboutMe) {
@@ -58,7 +64,17 @@ export default {
         // this.showHome = false;
       } else if(screen == 'about-me' && !this.showAboutMe) {
         this.showAboutMe = true;
-        this.showHome = false
+        this.clicked = true;
+        this.showHome = false;
+        this.showCV = false;
+      }
+
+      if (screen == 'cv' && this.showCV) {
+        // this.showHome = false;
+      } else if(screen == 'cv' && !this.showCV) {
+        this.showCV = true;
+        this.showHome = false;
+        this.showAboutMe = false;
       }
 
       // if (this.showHome) {
@@ -142,4 +158,21 @@ export default {
   // justify-content: center;
   // align-items: center;
 }
+
+.clicked {
+  animation: flip-horizontal-bottom 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@keyframes flip-horizontal-bottom {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
 </style>
