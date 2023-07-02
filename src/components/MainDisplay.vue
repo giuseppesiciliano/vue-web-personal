@@ -20,12 +20,12 @@
       </div>
 
       <!-- screens -->
-      <Home v-if="showHome" />
+      <Home v-if="showHome" :class="{ fadein: clicked }"/>
       <AboutMe v-if="showAboutMe" :class="{ flip: clicked }" />
       <CV v-if="showCV" :class="{ rotate: clicked }" />
-      <Portfolio v-if="showPortfolio" />
-      <Blog v-if="showBlog" />
-      <Contact v-if="showContact" />
+      <Portfolio v-if="showPortfolio" :class="{ rotatevert: clicked }"/>
+      <Blog v-if="showBlog" :class="{ scaleright: clicked }" />
+      <Contact v-if="showContact" :class="{ slidetop: clicked }" />
 
     </div>
 </template>
@@ -77,7 +77,63 @@ export default {
       Object.keys(screens).forEach((prop) => {
         this[screens[prop]] = (prop === screen);
       });
-    }
+    },
+    // showScreen(screen) {
+    //   // HOME screen
+    //   if (screen == 'home' && !this.showHome) {
+    //     this.showHome = true;
+    //     this.showAboutMe = false;
+    //     this.showCV = false;
+    //     this.showPortfolio = false;
+    //     this.showBlog = false;
+    //     this.showContact = false;
+    //   }
+    //   // ABOUT ME screen
+    //   if (screen == 'about-me' && !this.showAboutMe) {
+    //     this.showAboutMe = true;
+    //     this.showHome = false;
+    //     this.showCV = false;
+    //     this.showPortfolio = false;
+    //     this.showBlog = false;
+    //     this.showContact = false;        
+    //   }
+    //   // CV screen
+    //   if (screen == 'cv' && !this.showCV) {
+    //     this.showCV = true;
+    //     this.showHome = false;
+    //     this.showAboutMe = false;
+    //     this.showPortfolio = false;
+    //     this.showBlog = false;
+    //     this.showContact = false;        
+    //   }
+    //   // PORTFOLIO screen
+    //   if (screen == 'portfolio' && !this.showPortfolio) {
+    //     this.showPortfolio = true;
+    //     this.showHome = false;
+    //     this.showAboutMe = false;
+    //     this.showCV = false;
+    //     this.showBlog = false;
+    //     this.showContact = false;
+    //   }
+    //   // BLOG screen
+    //   if (screen == 'blog' && !this.showBlog) {
+    //     this.showBlog = true;
+    //     this.showHome = false;
+    //     this.showAboutMe = false;
+    //     this.showCV = false;
+    //     this.showPortfolio = false;
+    //     this.showContact = false;
+    //   }
+    //   // CONTACT screen
+    //   if (screen == 'contact' && !this.showContact) {
+    //     this.showContact = true;
+    //     this.showHome = false;
+    //     this.showAboutMe = false;
+    //     this.showCV = false;
+    //     this.showPortfolio = false;
+    //     this.showBlog = false;
+    //   }
+    // },
   }
 }
 </script>
@@ -144,6 +200,18 @@ export default {
 
 
 // effetti al cambio di screen
+.fadein {
+	animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .flip {
   animation: flip-horizontal-bottom 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
@@ -162,13 +230,54 @@ export default {
 .rotate {
   animation: rotate-center 0.6s ease-in-out both;
 }
-
 @keyframes rotate-center {
   0% {
     transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.rotatevert {
+  animation: rotate-vert-left 1s cubic-bezier(0.645, 0.045, 0.355, 1.000) both;
+}
+@keyframes rotate-vert-left {
+  0% {
+    transform: rotateY(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: rotateY(360deg);
+    transform-origin: left;
+  }
+}
+
+.scaleright {
+	animation: scale-up-hor-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@keyframes scale-up-hor-right {
+  0% {
+    transform: scaleX(0.4);
+    transform-origin: 100% 100%;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+  }
+}
+
+.slidetop {
+	animation: slide-in-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 </style>
