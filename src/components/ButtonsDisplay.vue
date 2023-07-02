@@ -18,15 +18,15 @@
             </li>
             <li>
                 <span class="text" style="margin-right: -3px;">Portfolio</span>
-                <a><i class="fa-solid fa-briefcase"></i></a>
+                <a><i class="fa-solid fa-briefcase" @click="handleClick('portfolio')"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -4px;">Blog</span>
-                <a><i class="fa-solid fa-book"></i></a>
+                <a><i class="fa-solid fa-book" @click="handleClick('blog')"></i></a>
             </li>
             <li>
                 <span class="text" style="margin-right: -2px;">Contatti</span>
-                <a><i class="fa-solid fa-address-card"></i></a>
+                <a><i class="fa-solid fa-address-card" @click="handleClick('contact')"></i></a>
             </li>
           </ul>
         </nav>

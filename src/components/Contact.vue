@@ -1,13 +1,13 @@
 <template>
-    <div class="cv">
-      <div class="text">Curriculum Vitae</div>
+    <div class="contact">
+      <div class="text">Contatti</div>
     </div>
 </template>
 
 
 <script>
 export default {
-  name: 'CV',
+  name: 'ContactX',
 }
 </script>
 
@@ -16,7 +16,7 @@ export default {
 @import '../style/variables';
 @import '../style/generals';
 
-.cv {
+.contact {
   background-color: $second-color;
   min-width: calc(100% - 350px);
   // width: 1150px;

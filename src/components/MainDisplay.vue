@@ -21,8 +21,11 @@
 
       <!-- screens -->
       <Home v-if="showHome" />
-      <AboutMe v-if="showAboutMe" :class="{ clicked: clicked }" />
-      <CV v-if="showCV" />
+      <AboutMe v-if="showAboutMe" :class="{ flip: clicked }" />
+      <CV v-if="showCV" :class="{ rotate: clicked }" />
+      <Portfolio v-if="showPortfolio" />
+      <Blog v-if="showBlog" />
+      <Contact v-if="showContact" />
 
     </div>
 </template>
@@ -32,6 +35,9 @@
 import Home from './Home.vue';
 import AboutMe from './AboutMe.vue';
 import CV from './CV.vue';
+import Portfolio from './Portfolio.vue';
+import Blog from './Blog.vue';
+import Contact from './Contact.vue';
 
 
 export default {
@@ -40,13 +46,20 @@ export default {
     Home,
     AboutMe,
     CV,
+    Portfolio,
+    Blog,
+    Contact
   },
   data() {
     return {
       showHome: true,
       showAboutMe: false,
       showCV: false,
-      clicked: false,
+      showPortfolio: false,
+      showBlog: false,
+      showContact: false,
+
+      clicked: true,
     }
   },
   methods: {
@@ -57,6 +70,9 @@ export default {
         this.showHome = true;
         this.showAboutMe = false;
         this.showCV = false;
+        this.showPortfolio = false;
+        this.showBlog = false;
+        this.showContact = false;
       }
 
       if (screen == 'about-me' && this.showAboutMe) {
@@ -64,9 +80,12 @@ export default {
         // this.showHome = false;
       } else if(screen == 'about-me' && !this.showAboutMe) {
         this.showAboutMe = true;
-        this.clicked = true;
+        // this.clicked = true;
         this.showHome = false;
         this.showCV = false;
+        this.showPortfolio = false;
+        this.showBlog = false;
+        this.showContact = false;        
       }
 
       if (screen == 'cv' && this.showCV) {
@@ -75,6 +94,42 @@ export default {
         this.showCV = true;
         this.showHome = false;
         this.showAboutMe = false;
+        this.showPortfolio = false;
+        this.showBlog = false;
+        this.showContact = false;        
+      }
+
+      if (screen == 'portfolio' && this.showPortfolio) {
+        // this.showHome = false;
+      } else if(screen == 'portfolio' && !this.showPortfolio) {
+        this.showPortfolio = true;
+        this.showHome = false;
+        this.showAboutMe = false;
+        this.showCV = false;
+        this.showBlog = false;
+        this.showContact = false;
+      }
+
+      if (screen == 'blog' && this.showBlog) {
+        // this.showHome = false;
+      } else if(screen == 'blog' && !this.showBlog) {
+        this.showBlog = true;
+        this.showHome = false;
+        this.showAboutMe = false;
+        this.showCV = false;
+        this.showPortfolio = false;
+        this.showContact = false;
+      }
+
+      if (screen == 'contact' && this.showContact) {
+        // this.showHome = false;
+      } else if(screen == 'contact' && !this.showContact) {
+        this.showContact = true;
+        this.showHome = false;
+        this.showAboutMe = false;
+        this.showCV = false;
+        this.showPortfolio = false;
+        this.showBlog = false;
       }
 
       // if (this.showHome) {
@@ -149,20 +204,12 @@ export default {
   }
 }
 
-.screens {
-  // background-color: $second-color;
-  // width: calc(100% - 350px);
-  // border-radius: 35px;
 
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-}
 
-.clicked {
+// effetti al cambio di screen
+.flip {
   animation: flip-horizontal-bottom 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
-
 @keyframes flip-horizontal-bottom {
   0% {
     transform: rotateX(0);
@@ -175,4 +222,16 @@ export default {
   }
 }
 
+.rotate {
+  animation: rotate-center 0.6s ease-in-out both;
+}
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>
