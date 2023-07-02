@@ -64,83 +64,20 @@ export default {
   },
   methods: {
     showScreen(screen) {
-      if (screen == 'home' && this.showHome) {
-        // this.showHome = false;
-      } else if(screen == 'home' && !this.showHome) {
-        this.showHome = true;
-        this.showAboutMe = false;
-        this.showCV = false;
-        this.showPortfolio = false;
-        this.showBlog = false;
-        this.showContact = false;
-      }
 
-      if (screen == 'about-me' && this.showAboutMe) {
-        // this.showAboutMe = false;
-        // this.showHome = false;
-      } else if(screen == 'about-me' && !this.showAboutMe) {
-        this.showAboutMe = true;
-        // this.clicked = true;
-        this.showHome = false;
-        this.showCV = false;
-        this.showPortfolio = false;
-        this.showBlog = false;
-        this.showContact = false;        
-      }
+      const screens = {
+        'home': 'showHome',
+        'about-me': 'showAboutMe',
+        'cv': 'showCV',
+        'portfolio': 'showPortfolio',
+        'blog': 'showBlog',
+        'contact': 'showContact'
+      };
 
-      if (screen == 'cv' && this.showCV) {
-        // this.showHome = false;
-      } else if(screen == 'cv' && !this.showCV) {
-        this.showCV = true;
-        this.showHome = false;
-        this.showAboutMe = false;
-        this.showPortfolio = false;
-        this.showBlog = false;
-        this.showContact = false;        
-      }
-
-      if (screen == 'portfolio' && this.showPortfolio) {
-        // this.showHome = false;
-      } else if(screen == 'portfolio' && !this.showPortfolio) {
-        this.showPortfolio = true;
-        this.showHome = false;
-        this.showAboutMe = false;
-        this.showCV = false;
-        this.showBlog = false;
-        this.showContact = false;
-      }
-
-      if (screen == 'blog' && this.showBlog) {
-        // this.showHome = false;
-      } else if(screen == 'blog' && !this.showBlog) {
-        this.showBlog = true;
-        this.showHome = false;
-        this.showAboutMe = false;
-        this.showCV = false;
-        this.showPortfolio = false;
-        this.showContact = false;
-      }
-
-      if (screen == 'contact' && this.showContact) {
-        // this.showHome = false;
-      } else if(screen == 'contact' && !this.showContact) {
-        this.showContact = true;
-        this.showHome = false;
-        this.showAboutMe = false;
-        this.showCV = false;
-        this.showPortfolio = false;
-        this.showBlog = false;
-      }
-
-      // if (this.showHome) {
-      //   this.showHome = false;
-      //   // this.showAboutMe = true;
-      // }else {
-      //   this.showHome = true;
-        // this.showAboutMe = false;
-      
-      // alert('ciao');
-    },
+      Object.keys(screens).forEach((prop) => {
+        this[screens[prop]] = (prop === screen);
+      });
+    }
   }
 }
 </script>
