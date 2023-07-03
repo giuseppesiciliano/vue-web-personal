@@ -10,34 +10,36 @@
         <div class="professione">Web Developer</div>
 
         <div class="social">
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/giuseppe.developer/?igshid=MjEwN2IyYWYwYw%3D%3D"><i class="fa-brands fa-instagram"></i></a>
             <a href=""><i class="fa-brands fa-square-facebook px-12"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/giuseppe-siciliano-0b647b233/"><i class="fa-brands fa-linkedin"></i></a>
         </div>
 
-        <div class="cv">Download CV</div>
+        <div class="cv">
+          <a href="../assets/cv.pdf" download="Giuseppe Siciliano CV.pdf">Download CV</a>
+        </div>
 
       </div>
 
       <!-- screens -->
-      <Home v-if="showHome" :class="{ fadein: clicked }"/>
-      <AboutMe v-if="showAboutMe" :class="{ flip: clicked }" />
-      <CV v-if="showCV" :class="{ rotate: clicked }" />
-      <Portfolio v-if="showPortfolio" :class="{ rotatevert: clicked }"/>
-      <Blog v-if="showBlog" :class="{ scaleright: clicked }" />
-      <Contact v-if="showContact" :class="{ slidetop: clicked }" />
+      <Home v-if="showHome"             :class="{ fadein: clicked }" />
+      <AboutMe v-if="showAboutMe"       :class="{ flip: clicked }" />
+      <CV v-if="showCV"                 :class="{ rotate: clicked }" style="overflow-y: auto" />
+      <Portfolio v-if="showPortfolio"   :class="{ rotatevert: clicked }"/>
+      <Blog v-if="showBlog"             :class="{ scaleright: clicked }" />
+      <Contact v-if="showContact"       :class="{ slidetop: clicked }" />
 
     </div>
 </template>
 
 
 <script>
-import Home from './Home.vue';
-import AboutMe from './AboutMe.vue';
-import CV from './CV.vue';
-import Portfolio from './Portfolio.vue';
-import Blog from './Blog.vue';
-import Contact from './Contact.vue';
+import Home       from './Home.vue';
+import AboutMe    from './AboutMe.vue';
+import CV         from './CV.vue';
+import Portfolio  from './Portfolio.vue';
+import Blog       from './Blog.vue';
+import Contact    from './Contact.vue';
 
 
 export default {
@@ -52,12 +54,12 @@ export default {
   },
   data() {
     return {
-      showHome: true,
-      showAboutMe: false,
-      showCV: false,
-      showPortfolio: false,
-      showBlog: false,
-      showContact: false,
+      showHome:       true,
+      showAboutMe:    false,
+      showCV:         false,
+      showPortfolio:  false,
+      showBlog:       false,
+      showContact:    false,
 
       clicked: true,
     }
@@ -66,12 +68,12 @@ export default {
     showScreen(screen) {
 
       const screens = {
-        'home': 'showHome',
-        'about-me': 'showAboutMe',
-        'cv': 'showCV',
-        'portfolio': 'showPortfolio',
-        'blog': 'showBlog',
-        'contact': 'showContact'
+        'home':       'showHome',
+        'about-me':   'showAboutMe',
+        'cv':         'showCV',
+        'portfolio':  'showPortfolio',
+        'blog':       'showBlog',
+        'contact':    'showContact'
       };
 
       Object.keys(screens).forEach((prop) => {
@@ -194,6 +196,11 @@ export default {
     padding: 8px 40px;
     margin-bottom: 50px;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+
+    a {
+      font-size: 20px;
+      text-decoration: none;
+    }
   }
 }
 
@@ -278,6 +285,18 @@ export default {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 1023px) {
+  .profilo {
+    display: none;
   }
 }
 </style>

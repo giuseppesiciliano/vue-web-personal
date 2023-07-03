@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <Container />
-
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <div class="layer">
+      <Container />
+    </div>
+    
   </div>
 </template>
 
@@ -26,11 +27,17 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: #2c3e50;
+  background-image: url("@/assets/sfondo.JPG");
+}
 
+.layer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
+@media (max-width: 1023px) {}
 </style>

@@ -31,10 +31,23 @@ export default {
   opacity: 0;
   animation: appear 0.5s linear 0.3s forwards;
 }
-
 @keyframes appear {
   100% {
     opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1023px) {
+
+  .home {
+    width: 100%;
   }
 }
 </style>

@@ -27,8 +27,6 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  // background-color: pink;
-
   display: flex;
 
   width: 1350px;
@@ -36,5 +34,15 @@ export default {
   min-height: 80%;
   margin-left: 90px;
   margin-right: 20px;
+}
+
+
+@media (max-width: 1023px) {
+
+  .container {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

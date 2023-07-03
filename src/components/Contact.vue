@@ -37,4 +37,14 @@ export default {
     opacity: 1;
   }
 }
+
+
+
+
+@media (max-width: 1023px) {
+
+  .contact {
+    width: 100%;
+  }
+}
 </style>

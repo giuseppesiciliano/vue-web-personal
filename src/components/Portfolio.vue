@@ -37,4 +37,15 @@ export default {
     opacity: 1;
   }
 }
+
+
+
+
+
+@media (max-width: 1023px) {
+
+  .portfolio {
+    width: 100%;
+  }
+}
 </style>

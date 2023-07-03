@@ -1,6 +1,9 @@
 <template>
     <div class="about-me">
-      <div class="text">About Me</div>
+      <div class="text">
+        Su di me
+
+      </div>
     </div>
 </template>
 
@@ -27,14 +30,35 @@ export default {
 
 }
 
+
+
+
+
+
+
+
+// animazione all'apertura
 .text {
+  padding: 40px;
   opacity: 0;
   animation: appear 0.5s linear 0.5s forwards;
 }
-
 @keyframes appear {
   100% {
     opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 1023px) {
+
+  .about-me {
+    width: 100%;
   }
 }
 </style>
