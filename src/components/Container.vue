@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     ciao(screen) {
-      this.$refs.MainDisplay.showScreen(screen)
+      this.$refs.MainDisplay.showScreen(screen);
     },
   }
 }

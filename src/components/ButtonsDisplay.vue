@@ -67,7 +67,7 @@ export default {
 nav, 
 .next-prev {
   width: 70px;
-  background-color: #6e0253;
+  background-color: $third-color;
   border-radius: 40px;
   box-shadow: 0px 0px 500px 0px rgba(0, 0, 0, 0.1);
 }

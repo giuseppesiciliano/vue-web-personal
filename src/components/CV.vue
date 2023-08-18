@@ -143,7 +143,7 @@ export default {
 .rounded {
   height: 20px;
   width: 20px;
-  background-color: #6e0253;
+  background-color: $third-color;
   border-radius: 50%;
   position: absolute;
   left: -11px
