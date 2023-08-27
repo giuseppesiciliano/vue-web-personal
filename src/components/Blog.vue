@@ -42,7 +42,7 @@ export default {
 
 
 
-@media (max-width: 1023px) {
+@media (max-width: 1223px) {
 
   .blog {
     width: 100%;

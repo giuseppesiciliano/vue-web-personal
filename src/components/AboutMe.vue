@@ -55,7 +55,7 @@ export default {
 
 
 
-@media (max-width: 1023px) {
+@media (max-width: 1223px) {
 
   .about-me {
     width: 100%;
